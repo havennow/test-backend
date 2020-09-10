@@ -28,6 +28,3 @@ Homestead.json
 .phpunit.result.cache
 
 .idea/
-docker-compose.yml
-docker/
-src/
