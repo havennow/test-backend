@@ -5,18 +5,33 @@ namespace App\Http\Services;
 use App\Models\Character;
 use App\Models\CharactersComic;
 
+/**
+ * Class Characters
+ * @package App\Http\Services
+ */
 class Characters
 {
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getAll()
     {
         return Character::all(['id', 'name']);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static|static[]
+     */
     public function getById($id)
     {
         return Character::query()->select(['id', 'name'])->find($id);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getComics($id)
     {
         return CharactersComic::query()
@@ -27,6 +42,10 @@ class Characters
             ->get();
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getEvents($id)
     {
         return CharactersComic::query()
@@ -40,6 +59,10 @@ class Characters
             ->get();
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getSeries($id)
     {
         return CharactersComic::query()
@@ -51,6 +74,10 @@ class Characters
         ->get();
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
     public function getStories($id)
     {
         return CharactersComic::query()

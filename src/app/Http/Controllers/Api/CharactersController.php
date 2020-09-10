@@ -11,18 +11,32 @@ use App\Http\Services\Characters as CharactersService;
  */
 class CharactersController extends ApiController
 {
+    /**
+     * @var CharactersService
+     */
     private $charactersService;
 
+    /**
+     * CharactersController constructor.
+     * @param CharactersService $charactersService
+     */
     public function __construct(CharactersService $charactersService)
     {
         $this->charactersService = $charactersService;
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function all()
     {
         return response()->json($this->charactersService->getAll());
     }
 
+    /**
+     * @param $characterId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getById($characterId)
     {
         $data = $this->charactersService->getById($characterId);
@@ -36,6 +50,10 @@ class CharactersController extends ApiController
         return response()->json($data, 200);
     }
 
+    /**
+     * @param $characterId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function comics($characterId)
     {
         $data = $this->charactersService->getComics($characterId);
@@ -49,6 +67,10 @@ class CharactersController extends ApiController
         return response()->json($data, 200);
     }
 
+    /**
+     * @param $characterId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function events($characterId)
     {
         $data = $this->charactersService->getEvents($characterId);
@@ -62,6 +84,10 @@ class CharactersController extends ApiController
         return response()->json($data, 200);
     }
 
+    /**
+     * @param $characterId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function series($characterId)
     {
         $data = $this->charactersService->getSeries($characterId);
@@ -75,6 +101,10 @@ class CharactersController extends ApiController
         return response()->json($data, 200);
     }
 
+    /**
+     * @param $characterId
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function stories($characterId)
     {
         $data = $this->charactersService->getStories($characterId);
